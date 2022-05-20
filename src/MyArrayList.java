@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 public class MyArrayList {
 
+    private static Object massiv[];
+
 //************************ add(Object value) добавляет элемент в конец *********************
 
     public static Object[] add(Object value) {
@@ -50,42 +52,5 @@ public class MyArrayList {
     //************************ get(int index) возвращает элемент под индексом **************
     public static Object get(int index) {
         return (massiv[index]);
-    }
-//**************************************************************************************
-
-    private static Object massiv[];
-
-    public static void main(String[] organs) throws IOException {
-//************************ Добавляем елемент *******************************************
-        System.out.println("Введите елемент массива.");
-        BufferedReader sam_reader = new BufferedReader(new InputStreamReader(System.in));
-        while (true) {
-            String sam_element = sam_reader.readLine();
-
-            if (sam_element.equals("!")) {
-                break;
-            }
-
-            MyArrayList.add(sam_element);
-        }
-//************************ Удаляем елемент *********************************************
-
-        System.out.println("После удаления елемента " +
-                Arrays.toString(MyArrayList.remove(2)));
-
-//************************ Очищаем коллекцию *******************************************
-
-        System.out.println("MyArrayList почищен " +
-                Arrays.toString(new Object[massiv.length]));
-
-//************************ Возвращаем размер коллекции *********************************
-
-        System.out.println("Размер коллекции " +
-                MyArrayList.size());
-
-//************************ get(int index) возвращает элемент под индексом **************
-        System.out.println("Возвращаем елемент по индексу [3] = " + MyArrayList.get(3));
-//**************************************************************************************
-        System.out.println("Выводим массив: " + Arrays.toString(massiv));
     }
 }

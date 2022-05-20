@@ -1,6 +1,9 @@
 import java.util.List;
 
 public class MyLinkedList {
+    public MyLinkedList() {
+        System.out.println("Создали MyLinkedList");;
+    }
 
     private class Node {
         Object value;
