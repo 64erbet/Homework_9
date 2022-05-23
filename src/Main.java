@@ -44,7 +44,10 @@ public class Main {
         myIntL.add(67);
         myIntL.add(98);
 
-        myIntL.remove(1);
+        System.out.println(myIntL);
+
+//        myIntL.remove(1);
+
 //        for (Integer i : myIntL) {
 //            System.out.println("Element = " + i);
 //        }

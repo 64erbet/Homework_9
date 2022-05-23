@@ -53,7 +53,7 @@ public class MyLinkedList<E> {
         if (size == 0) {
             throw new IllegalStateException("List is empty");
         } else {
-            E sam_element = (E) this.get(index);
+            Node<E> sam_element = this.get(index);
         }
 
 
@@ -73,9 +73,19 @@ public class MyLinkedList<E> {
         return (size);
     }
 //************************ Это метод get() **********************************************
-    public Node get(int index) {
+    public Node<E> get(int index) {
         return null;
     }
-//***************************************************************************************
+//************************* Это метод toString() ****************************************
+/*
+    public String toString() {
+        String S = "";
+        for(E i : this) {
+            S += i + " ";
+        }
+        return (S);
+    }
+*/
+ */
 }
 
