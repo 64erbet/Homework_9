@@ -25,7 +25,7 @@ public class Main {
 //************************ Очищаем коллекцию *******************************************
 
         System.out.println("MyArrayList почищен " +
-                Arrays.toString(new Object[massiv.length]));
+                Arrays.toString(new Object[MyArrayList.massiv.length]));
 
 //************************ Возвращаем размер коллекции *********************************
 
@@ -35,6 +35,6 @@ public class Main {
 //************************ get(int index) возвращает элемент под индексом **************
         System.out.println("Возвращаем елемент по индексу [3] = " + MyArrayList.get(3));
 //**************************************************************************************
-        System.out.println("Выводим массив: " + Arrays.toString(massiv));
+        System.out.println("Выводим массив: " + Arrays.toString(MyArrayList.massiv));
     }
 }

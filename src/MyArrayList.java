@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class MyArrayList {
 
-    private static Object massiv[];
+    public static Object massiv[];
 
 //************************ add(Object value) добавляет элемент в конец *********************
 
