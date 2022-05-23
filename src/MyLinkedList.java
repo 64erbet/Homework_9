@@ -1,67 +1,25 @@
 import java.util.List;
 
 public class MyLinkedList<E> {
-    public int getIndex() {
-        return index;
-    }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
+    int size = 0;
 
-    private int index = -1;
+    transient Node<E> first;
+    transient Node<E> last;
 
-    public int kol_elem = 0;
-
-    private Node firstEl;
-    private Node lastEl;
-
-
-    public MyLinkedList() {
-        System.out.println("Создали MyLinkedList");
-    }
-/*
-    public int size() {
-        return (index);
-    }
-
-*/
 //***************************************************************************************
-    private class Node {
+    private class Node<E> {
+
+        private Node<E> previous;
         private E value;
         private Node<E> next;
-        private Node<E> previous;
-/*
-        public E getValue() {
-            return value;
-        }
 
-        public void setValue(E value) {
-            this.value = value;
-        }
-
-        public Node<E> getNext() {
-            return next;
-        }
-
-        public void setNext(Node<E> next) {
-            this.next = next;
-        }
-
-        public Node<E> getPrevious() {
-            return previous;
-        }
-
-        public void setPrevious(Node<E> previous) {
-            this.previous = previous;
-        }
-*/
         Node(Node<E> previous, E value, Node<E> next) {
             this.previous = previous;
             this.value = value;
             this.next = next;
 
-            System.out.println("Сооздали новый Node. Размер листа = " + (++index));
+            System.out.println("Сооздали новый Node. Размер листа = " + size);
         }
     }
 //***************************************************************************************
@@ -72,21 +30,20 @@ public class MyLinkedList<E> {
             throw new NullPointerException("You are adding NULL");
         }
 
-//        if (index == 0) {
-        if (index == -1) {
+        if (size == 0) {
             Node sam_node = new Node(null, o, null);
         } else
-        if (index == 0) {
+        if (size == 1) {
             Node sam_node = new Node(this.get(0), o, null);
         } else
-        if (index > 1) {
-            Node sam_node = new Node(this.get(index-1), o, null);
+        if (size > 1) {
+            Node sam_node = new Node(this.get(size-1), o, null);
         }
 
-        index ++;
+        size ++;
         rez = true;
 
-        System.out.println("Добавили елемент. Всего елементов в арай листе: " + (index + 1));
+        System.out.println("Добавили елемент. Всего елементов в арай листе: " + this.size);
         return rez;
     }
 //***************************************************************************************
@@ -113,10 +70,10 @@ public class MyLinkedList<E> {
     }
 //***************************************************************************************
     public int size() {
-        return (index + 1);
+        return (size);
     }
 //***************************************************************************************
-    public Object get(int index) {
+    public Node get(int index) {
         return null;
     }
 //***************************************************************************************

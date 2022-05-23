@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] organs) throws IOException {
+/*
 //************************ Добавляем елемент *******************************************
         System.out.println("Введите елемент массива.");
         BufferedReader sam_reader = new BufferedReader(new InputStreamReader(System.in));
@@ -36,5 +37,12 @@ public class Main {
         System.out.println("Возвращаем елемент по индексу [3] = " + MyArrayList.get(3));
 //**************************************************************************************
         System.out.println("Выводим массив: " + Arrays.toString(MyArrayList.massiv));
+*/
+        MyLinkedList<Integer> myIntL = new MyLinkedList<>();
+        myIntL.add(56);
+        myIntL.add(6);
+//        for (Integer i : myIntL) {
+//            System.out.println("Element = " + i);
+//        }
     }
 }
