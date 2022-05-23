@@ -41,6 +41,8 @@ public class Main {
         MyLinkedList<Integer> myIntL = new MyLinkedList<>();
         myIntL.add(56);
         myIntL.add(6);
+        myIntL.add(67);
+        myIntL.add(98);
 //        for (Integer i : myIntL) {
 //            System.out.println("Element = " + i);
 //        }
