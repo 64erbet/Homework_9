@@ -2,27 +2,33 @@ import java.util.List;
 
 public class MyLinkedList<E> {
 
-    int size = 0;
+    https://www.youtube.com/watch?v=BH6RJf2fVCQ
 
-    transient Node<E> first;
-    transient Node<E> last;
+    private Node<E> first;
+    private Node<E> last;
+    private int size = 0;
+/*
+    public MyLinkedList() {
+        last = new Node<E>(first, null, null);
+        first = new Node<E>(null, null, last);
+    }
+*/
+    //***************************************************************************************
+    private static class Node<E> {
 
-//***************************************************************************************
-    private class Node<E> {
+        public Node<E> prev;
+        public E item;
+        public Node<E> next;
 
-        private Node<E> previous;
-        private E value;
-        private Node<E> next;
-
-        Node(Node<E> previous, E value, Node<E> next) {
-            this.previous = previous;
-            this.value = value;
+        Node(Node<E> prev, E item, Node<E> next) {
+            this.prev = prev;
+            this.item = item;
             this.next = next;
 
 //            System.out.println("Сооздали новый Node. Размер листа = " + size);
         }
     }
-//************************ Это метод add() **********************************************
+    //************************ Это метод add() **********************************************
     public boolean add(E o) {
         boolean rez = false;
 
@@ -32,12 +38,16 @@ public class MyLinkedList<E> {
 
         if (size == 0) {
             Node sam_node = new Node(null, o, null);
+            this.first = sam_node;
+            this.last = sam_node;
         } else
         if (size == 1) {
             Node sam_node = new Node(this.get(0), o, null);
+            this.last = sam_node;
         } else
         if (size > 1) {
             Node sam_node = new Node(this.get(size-1), o, null);
+            this.last = sam_node;
         }
 
         size ++;
@@ -46,15 +56,27 @@ public class MyLinkedList<E> {
         System.out.println("Добавили елемент. Всего елементов в арай листе: " + this.size);
         return rez;
     }
-//************************ Это метод remove() ******************************************
+    //************************ Это метод remove() ******************************************
     public boolean remove(int index) {
         boolean rez = false;
 
         if (size == 0) {
             throw new IllegalStateException("List is empty");
         } else {
-            Node<E> sam_element = this.get(index);
+
+            // ТУТ НУЖНО ПЕРЕБРАТЬ ВЕСЬ НАШ MYLINKEDLIST И НАЙТИ (Я ДУМАЮ ПО ЕГО ПОЛЮ SIZE)
+            // НУЖНЫЙ НАМ ЕЛЕМЕНТ И ДАЛЬШЕ ЕГО ОБНУЛИТЬ И ПЕРЕНАЗНАЧИТЬ ССЫЛКИ НА СОСЕДНИЕ... НО
+            // НУЖЕН ИТЕРАТОР !!!!!!!!!!!!!
+            // А если реализовать (написать после класса implements List) List - то нужно будет
+            // переопределять ВСЕ методы интерфейса лист. А этого делать в задании вроде НЕТ.
+            // Сориентирую как перебрать все елементы нашего свежего класса не используя итератора??
+
+//            Node<E> sam_element = this.get(index);
+//            System.out.println("sam_element.item" + sam_element.item);
+
+
         }
+
 
 
 
@@ -64,20 +86,23 @@ public class MyLinkedList<E> {
 
         return rez;
     }
-//************************ Это метод clear() ********************************************
+    //************************ Это метод clear() ********************************************
     public void clear() {
-
+        this = new MyLinkedList<>();
     }
-//************************ Это метод size() *********************************************
+    //************************ Это метод size() *********************************************
     public int size() {
         return (size);
     }
-//************************ Это метод get() **********************************************
+    //************************ Это метод get() **********************************************
     public Node<E> get(int index) {
+        // Опять нужно перебрать весь наш LinkedList и если наше поле Node будет равно index
+        // вернуть у этго елемента значение Node.item
         return null;
     }
 //************************* Это метод toString() ****************************************
 /*
+    @Override
     public String toString() {
         String S = "";
         for(E i : this) {
@@ -86,6 +111,5 @@ public class MyLinkedList<E> {
         return (S);
     }
 */
- */
 }
 
