@@ -52,5 +52,6 @@ public class Main {
 //            System.out.println("Element = " + i);
 //        }
         System.out.println("myIntL 2 = " + myIntL.get(2));
+        System.out.println("Длина списка (size()) = " + myIntL.size());
     }
 }
