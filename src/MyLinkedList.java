@@ -1,69 +1,81 @@
-import java.util.List;
-
 public class MyLinkedList<E> {
 
-    https://www.youtube.com/watch?v=BH6RJf2fVCQ
+//    https://www.youtube.com/watch?v=BH6RJf2fVCQ
 
-    private Node<E> first;
-    private Node<E> last;
+    private Node<E> firstNode;
+    private Node<E> lastNode;
     private int size = 0;
-/*
+
     public MyLinkedList() {
-        last = new Node<E>(first, null, null);
-        first = new Node<E>(null, null, last);
+        lastNode = new Node<E>(firstNode, null, null);
+        firstNode = new Node<E>(null, null, lastNode);
     }
-*/
+
     //***************************************************************************************
     private static class Node<E> {
 
-        public Node<E> prev;
-        public E item;
-        public Node<E> next;
+        private Node<E> prevNode;
+        private E item;
+        private Node<E> nextNode;
 
-        Node(Node<E> prev, E item, Node<E> next) {
-            this.prev = prev;
+        Node(Node<E> prevNode, E item, Node<E> nextNode) {
+            this.prevNode = prevNode;
             this.item = item;
-            this.next = next;
+            this.nextNode = nextNode;
+        }
 
-//            System.out.println("Сооздали новый Node. Размер листа = " + size);
+        public Node<E> getPrevNode() {
+            return prevNode;
+        }
+
+        public void setPrevNode(Node<E> prevNode) {
+            this.prevNode = prevNode;
+        }
+
+        public E getItem() {
+            return item;
+        }
+
+        public void setItem(E item) {
+            this.item = item;
+        }
+
+        public Node<E> getNextNode() {
+            return nextNode;
+        }
+
+        public void setNextNode(Node<E> nextNode) {
+            this.nextNode = nextNode;
         }
     }
     //************************ Это метод add() **********************************************
     public boolean add(E o) {
         boolean rez = false;
 
-        if (o == null) {
-            throw new NullPointerException("You are adding NULL");
-        }
+        Node<E> prevNode = lastNode;
+        prevNode.setItem(o);
+        lastNode = new Node<E>(prevNode, null, null);
+        prevNode.setNextNode(lastNode);
+        size++;
 
-        if (size == 0) {
-            Node sam_node = new Node(null, o, null);
-            this.first = sam_node;
-            this.last = sam_node;
-        } else
-        if (size == 1) {
-            Node sam_node = new Node(this.get(0), o, null);
-            this.last = sam_node;
-        } else
-        if (size > 1) {
-            Node sam_node = new Node(this.get(size-1), o, null);
-            this.last = sam_node;
-        }
-
-        size ++;
         rez = true;
 
         System.out.println("Добавили елемент. Всего елементов в арай листе: " + this.size);
         return rez;
     }
     //************************ Это метод remove() ******************************************
-    public boolean remove(int index) {
-        boolean rez = false;
-
+//    public boolean remove(int index) {
+//        boolean rez = false;
+/*
         if (size == 0) {
             throw new IllegalStateException("List is empty");
         } else {
+            for(int i=0; i < this.size(); i++) {
+                if(i == index) {
 
+                }
+
+            }
             // ТУТ НУЖНО ПЕРЕБРАТЬ ВЕСЬ НАШ MYLINKEDLIST И НАЙТИ (Я ДУМАЮ ПО ЕГО ПОЛЮ SIZE)
             // НУЖНЫЙ НАМ ЕЛЕМЕНТ И ДАЛЬШЕ ЕГО ОБНУЛИТЬ И ПЕРЕНАЗНАЧИТЬ ССЫЛКИ НА СОСЕДНИЕ... НО
             // НУЖЕН ИТЕРАТОР !!!!!!!!!!!!!
@@ -73,32 +85,41 @@ public class MyLinkedList<E> {
 
 //            Node<E> sam_element = this.get(index);
 //            System.out.println("sam_element.item" + sam_element.item);
+*/
 
-
-        }
+//        }
 
 
 
 
 
 //        size --;
-        rez = true;
+//        rez = true;
 
-        return rez;
-    }
+//        return rez;
+//    }
     //************************ Это метод clear() ********************************************
     public void clear() {
-        this = new MyLinkedList<>();
+//        this = new MyLinkedList<>();
     }
     //************************ Это метод size() *********************************************
     public int size() {
         return (size);
     }
     //************************ Это метод get() **********************************************
-    public Node<E> get(int index) {
-        // Опять нужно перебрать весь наш LinkedList и если наше поле Node будет равно index
-        // вернуть у этго елемента значение Node.item
-        return null;
+//    public Node<E> get(int index) {
+    public E get(int index) {
+        Node<E> vihlop = firstNode.getNextNode();
+
+        for (int i=0; i<index; i++) {
+            vihlop = getNextNode(vihlop);
+        }
+
+        return vihlop.getItem();
+    }
+
+    private Node<E> getNextNode(Node<E> samaNode) {
+        return (samaNode.getNextNode());
     }
 //************************* Это метод toString() ****************************************
 /*

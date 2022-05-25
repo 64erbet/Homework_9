@@ -46,10 +46,11 @@ public class Main {
 
 //        System.out.println(myIntL);
 
-        myIntL.remove(1);
+//        myIntL.remove(1);
 
 //        for (Integer i : myIntL) {
 //            System.out.println("Element = " + i);
 //        }
+        System.out.println("myIntL 2 = " + myIntL.get(2));
     }
 }
