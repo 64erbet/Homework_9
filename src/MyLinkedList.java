@@ -1,7 +1,5 @@
 public class MyLinkedList<E> {
 
-//    https://www.youtube.com/watch?v=BH6RJf2fVCQ
-
     private Node<E> firstNode;
     private Node<E> lastNode;
     private int size = 0;
@@ -60,77 +58,70 @@ public class MyLinkedList<E> {
 
         rez = true;
 
-        System.out.println("Добавили елемент. Всего елементов в арай листе: " + this.size);
+//        System.out.println("Добавили елемент. Всего елементов в арай листе: " + this.size);
         return rez;
     }
     //************************ Это метод remove() ******************************************
-//    public boolean remove(int index) {
-//        boolean rez = false;
-/*
+    public boolean remove(int index) {
+        boolean rez = false;
+
         if (size == 0) {
             throw new IllegalStateException("List is empty");
         } else {
-            for(int i=0; i < this.size(); i++) {
-                if(i == index) {
-
-                }
-
+            Node<E> nodeToRemove = firstNode.getNextNode();
+            for(int i=0; i < index; i++) {
+                nodeToRemove = nodeToRemove.getNextNode();
             }
-            // ТУТ НУЖНО ПЕРЕБРАТЬ ВЕСЬ НАШ MYLINKEDLIST И НАЙТИ (Я ДУМАЮ ПО ЕГО ПОЛЮ SIZE)
-            // НУЖНЫЙ НАМ ЕЛЕМЕНТ И ДАЛЬШЕ ЕГО ОБНУЛИТЬ И ПЕРЕНАЗНАЧИТЬ ССЫЛКИ НА СОСЕДНИЕ... НО
-            // НУЖЕН ИТЕРАТОР !!!!!!!!!!!!!
-            // А если реализовать (написать после класса implements List) List - то нужно будет
-            // переопределять ВСЕ методы интерфейса лист. А этого делать в задании вроде НЕТ.
-            // Сориентирую как перебрать все елементы нашего свежего класса не используя итератора??
 
-//            Node<E> sam_element = this.get(index);
-//            System.out.println("sam_element.item" + sam_element.item);
-*/
+            nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
+            nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
 
-//        }
+            nodeToRemove = null;
+        }
+        size --;
 
+        rez = true;
 
-
-
-
-//        size --;
-//        rez = true;
-
-//        return rez;
-//    }
+        return rez;
+    }
     //************************ Это метод clear() ********************************************
     public void clear() {
-//        this = new MyLinkedList<>();
+
+        this.lastNode = new Node<E>(firstNode, null, null);
+        this.firstNode = new Node<E>(null, null, lastNode);
+        this.size = 0;
+
+//        System.out.println("MyLinkedList обнулен !!!!!");
     }
     //************************ Это метод size() *********************************************
     public int size() {
         return (size);
     }
     //************************ Это метод get() **********************************************
-//    public Node<E> get(int index) {
+
     public E get(int index) {
         Node<E> vihlop = firstNode.getNextNode();
 
         for (int i=0; i<index; i++) {
-            vihlop = getNextNode(vihlop);
+            vihlop = vihlop.getNextNode();
         }
 
         return vihlop.getItem();
     }
+    //************************* Это метод toString() ****************************************
 
-    private Node<E> getNextNode(Node<E> samaNode) {
-        return (samaNode.getNextNode());
-    }
-//************************* Это метод toString() ****************************************
-/*
     @Override
     public String toString() {
-        String S = "";
-        for(E i : this) {
-            S += i + " ";
+        String S = "[ ";
+
+        if (this == null) {
+            S = "fuck";
         }
-        return (S);
+
+        for(int i=0; i<this.size(); i++) {
+            S += this.get(i) + " ";
+        }
+        return (S.trim() + " ]");
     }
-*/
 }
 

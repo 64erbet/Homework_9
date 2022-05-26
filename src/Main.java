@@ -51,7 +51,14 @@ public class Main {
 //        for (Integer i : myIntL) {
 //            System.out.println("Element = " + i);
 //        }
-        System.out.println("myIntL 2 = " + myIntL.get(2));
+        System.out.println("myIntL = " + myIntL);
+//        System.out.println("myIntL 2-ой елемент = " + myIntL.get(2));
+        myIntL.remove(2);
+        System.out.println("Удалили 2-ой елемент. Теперь наш список: " + myIntL);
         System.out.println("Длина списка (size()) = " + myIntL.size());
+        myIntL.clear();
+//        System.out.println("myIntL 2 = " + myIntL.get(2));
+        System.out.println("ТЕПЕРЬ!! Длина списка (size()) = " + myIntL.size());
+        System.out.println("myIntL = " + myIntL);
     }
 }
