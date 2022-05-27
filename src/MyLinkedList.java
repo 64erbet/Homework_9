@@ -1,58 +1,58 @@
-public class MyLinkedList<E> {
+public class MyLinkedList {
 
-    private Node<E> firstNode;
-    private Node<E> lastNode;
+    private Node firstNode;
+    private Node lastNode;
     private int size = 0;
 
     public MyLinkedList() {
-        lastNode = new Node<E>(firstNode, null, null);
-        firstNode = new Node<E>(null, null, lastNode);
+        lastNode = new Node(firstNode, null, null);
+        firstNode = new Node(null, null, lastNode);
     }
 
     //***************************************************************************************
-    private static class Node<E> {
+    private static class Node {
 
-        private Node<E> prevNode;
-        private E item;
-        private Node<E> nextNode;
+        private Node prevNode;
+        private Object item;
+        private Node nextNode;
 
-        Node(Node<E> prevNode, E item, Node<E> nextNode) {
+        Node(Node prevNode, Object item, Node nextNode) {
             this.prevNode = prevNode;
             this.item = item;
             this.nextNode = nextNode;
         }
 
-        public Node<E> getPrevNode() {
+        public Node getPrevNode() {
             return prevNode;
         }
 
-        public void setPrevNode(Node<E> prevNode) {
+        public void setPrevNode(Node prevNode) {
             this.prevNode = prevNode;
         }
 
-        public E getItem() {
+        public Object getItem() {
             return item;
         }
 
-        public void setItem(E item) {
+        public void setItem(Object item) {
             this.item = item;
         }
 
-        public Node<E> getNextNode() {
+        public Node getNextNode() {
             return nextNode;
         }
 
-        public void setNextNode(Node<E> nextNode) {
+        public void setNextNode(Node nextNode) {
             this.nextNode = nextNode;
         }
     }
     //************************ Это метод add() **********************************************
-    public boolean add(E o) {
+    public boolean add(Object o) {
         boolean rez = false;
 
-        Node<E> prevNode = lastNode;
+        Node prevNode = lastNode;
         prevNode.setItem(o);
-        lastNode = new Node<E>(prevNode, null, null);
+        lastNode = new Node(prevNode, null, null);
         prevNode.setNextNode(lastNode);
         size++;
 
@@ -68,7 +68,7 @@ public class MyLinkedList<E> {
         if (size == 0) {
             throw new IllegalStateException("List is empty");
         } else {
-            Node<E> nodeToRemove = firstNode.getNextNode();
+            Node nodeToRemove = firstNode.getNextNode();
             for(int i=0; i < index; i++) {
                 nodeToRemove = nodeToRemove.getNextNode();
             }
@@ -87,8 +87,8 @@ public class MyLinkedList<E> {
     //************************ Это метод clear() ********************************************
     public void clear() {
 
-        this.lastNode = new Node<E>(firstNode, null, null);
-        this.firstNode = new Node<E>(null, null, lastNode);
+        this.lastNode = new Node(firstNode, null, null);
+        this.firstNode = new Node(null, null, lastNode);
         this.size = 0;
 
 //        System.out.println("MyLinkedList обнулен !!!!!");
@@ -99,8 +99,8 @@ public class MyLinkedList<E> {
     }
     //************************ Это метод get() **********************************************
 
-    public E get(int index) {
-        Node<E> vihlop = firstNode.getNextNode();
+    public Object get(int index) {
+        Node vihlop = firstNode.getNextNode();
 
         for (int i=0; i<index; i++) {
             vihlop = vihlop.getNextNode();

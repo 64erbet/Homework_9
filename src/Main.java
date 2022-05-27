@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] organs) throws IOException {
 /*
-//************************ Добавляем елемент *******************************************
+
         System.out.println("Введите елемент массива.");
         BufferedReader sam_reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
@@ -15,7 +15,7 @@ public class Main {
             if (sam_element.equals("!")) {
                 break;
             }
-
+//************************ Добавляем елемент *******************************************
             MyArrayList.add(sam_element);
         }
 //************************ Удаляем елемент *********************************************
@@ -38,27 +38,28 @@ public class Main {
 //**************************************************************************************
         System.out.println("Выводим массив: " + Arrays.toString(MyArrayList.massiv));
 */
-        MyLinkedList<Integer> myIntL = new MyLinkedList<>();
+
+
+/*
+        MyLinkedList myIntL = new MyLinkedList();
         myIntL.add(56);
         myIntL.add(6);
         myIntL.add(67);
         myIntL.add(98);
 
-//        System.out.println(myIntL);
-
-//        myIntL.remove(1);
-
-//        for (Integer i : myIntL) {
-//            System.out.println("Element = " + i);
-//        }
         System.out.println("myIntL = " + myIntL);
-//        System.out.println("myIntL 2-ой елемент = " + myIntL.get(2));
         myIntL.remove(2);
         System.out.println("Удалили 2-ой елемент. Теперь наш список: " + myIntL);
         System.out.println("Длина списка (size()) = " + myIntL.size());
         myIntL.clear();
-//        System.out.println("myIntL 2 = " + myIntL.get(2));
         System.out.println("ТЕПЕРЬ!! Длина списка (size()) = " + myIntL.size());
         System.out.println("myIntL = " + myIntL);
+*/
+        MyQueue sama_myQueue = new MyQueue();
+        System.out.println("sama_myQueue = " + sama_myQueue);
+        sama_myQueue.add("RAS !");
+        sama_myQueue.add("DVA !!");
+        sama_myQueue.add("TRI !!!");
+        System.out.println("sama_myQueue = " + sama_myQueue);
     }
 }
