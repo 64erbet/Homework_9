@@ -63,6 +63,7 @@ public class Main {
         sama_myQueue.add("DVA !!");
         sama_myQueue.add("TRI !!!");
         sama_myQueue.add("CHETIRE !!!");
+        sama_myQueue.remove(1);
         System.out.println("Размер очереди = " + sama_myQueue.size());
         System.out.println("sama_myQueue = " + sama_myQueue);
 //        sama_myQueue.remove(1);

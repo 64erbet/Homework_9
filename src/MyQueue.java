@@ -85,7 +85,7 @@ public class MyQueue {
         for (int i=0; i<=index; i++) {
             nodeToRemove = nodeToRemove.getNextNode();
         }
-        System.out.println("Удаляем ноду " + nodeToRemove);
+        System.out.println("Удаляем ноду " + nodeToRemove.getItem());
         nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
         nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
         nodeToRemove = null;
@@ -136,7 +136,7 @@ public class MyQueue {
 //        while (this.poll() != null) {
 //            vihlop += this.poll() + " ";
 
-//            vihlop += i + " ";
+            vihlop += i + " ";
         }
         return vihlop;
     }
