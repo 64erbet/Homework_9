@@ -56,13 +56,24 @@ public class MyQueue {
     }
 //************************ Добавляем елемент в конец по значению ************************
     public boolean add(Object value) {
+        for(int i=0; i<size; i++) {
+
+        }
         Node newNode;
         if (size == 0) {
-            newNode = lastNode;
-            newNode.setItem(value);
-            System.out.println("In LAST NODE added value " + value);
+//            newNode = lastNode;
+//            newNode.setItem(value);
+
+            newNode = new Node(firstNode, value, lastNode);
+            lastNode = newNode;
+
+//            lastNode.setPrevNode(firstNode);
+//            lastNode.setItem(value);
+//            System.out.println("In LAST NODE added value " + value);
+            System.out.println("Fist node = " + newNode);
         } else {
             newNode = new Node(lastNode, value, null);
+            lastNode = newNode;
             System.out.println("Added new NODE - " + newNode);
         }
         size++;
@@ -71,7 +82,7 @@ public class MyQueue {
 //************************ Удаляем елемент по индексу ***********************************
     public boolean remove(int index) {
         Node nodeToRemove = firstNode;
-        for (int i=0; i<index; i++) {
+        for (int i=0; i<=index; i++) {
             nodeToRemove = nodeToRemove.getNextNode();
         }
         System.out.println("Удаляем ноду " + nodeToRemove);
@@ -101,7 +112,7 @@ public class MyQueue {
         return (firstNode.getItem());
     }
 //************************ Воздвращаем первый елемент из очереди и УДАЛЯЕМ ЕГО из коллекции
-    public Object pool() {
+    public Object poll() {
         Object vihlop = firstNode.getItem();
 
         remove(0);
@@ -120,9 +131,12 @@ public class MyQueue {
 //    }
 
     public String toString() {
-        String vihlop = "";;
-        while (this.pool() != null) {
-            vihlop += this.pool().toString() + " ";
+        String vihlop = "";
+        for (int i=0; i<this.size(); i++) {
+//        while (this.poll() != null) {
+//            vihlop += this.poll() + " ";
+
+//            vihlop += i + " ";
         }
         return vihlop;
     }
