@@ -55,11 +55,16 @@ public class Main {
         System.out.println("ТЕПЕРЬ!! Длина списка (size()) = " + myIntL.size());
         System.out.println("myIntL = " + myIntL);
 */
+
+
         MyQueue sama_myQueue = new MyQueue();
-        System.out.println("sama_myQueue = " + sama_myQueue);
+//        System.out.println("sama_myQueue = " + sama_myQueue);
         sama_myQueue.add("RAS !");
         sama_myQueue.add("DVA !!");
         sama_myQueue.add("TRI !!!");
+        System.out.println("Размер очереди = " + sama_myQueue.size());
         System.out.println("sama_myQueue = " + sama_myQueue);
+//        sama_myQueue.remove(1);
+
     }
 }

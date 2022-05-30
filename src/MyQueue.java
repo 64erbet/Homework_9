@@ -1,23 +1,15 @@
 public class MyQueue {
+
     private Node firstNode;
     private Node lastNode;
     private int size = 0;
 
     public MyQueue() {
-//        firstNode = new Node(null, null, lastNode);
         lastNode = new Node(firstNode, null, null);
         firstNode = new Node(null, null, lastNode);
     }
 
-    @Override
-    public String toString() {
-        String vihlop = "";
-        for (int i=0; i<size; i++) {
-            vihlop += Node.get
-        }
-    }
-
-    //***************************************************************************************
+//***************************************************************************************
     private static class Node {
 
         private Node prevNode;
@@ -62,29 +54,77 @@ public class MyQueue {
             '}';
         }
     }
-//***************************************************************************************
+//************************ Добавляем елемент в конец по значению ************************
     public boolean add(Object value) {
+        Node newNode;
+        if (size == 0) {
+            newNode = lastNode;
+            newNode.setItem(value);
+            System.out.println("In LAST NODE added value " + value);
+        } else {
+            newNode = new Node(lastNode, value, null);
+            System.out.println("Added new NODE - " + newNode);
+        }
+        size++;
+        return true;
+    }
+//************************ Удаляем елемент по индексу ***********************************
+    public boolean remove(int index) {
+        Node nodeToRemove = firstNode;
+        for (int i=0; i<index; i++) {
+            nodeToRemove = nodeToRemove.getNextNode();
+        }
+        System.out.println("Удаляем ноду " + nodeToRemove);
+        nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
+        nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
+        nodeToRemove = null;
+        size--;
+        System.out.println("Удалили успешно!!!");
+        return true;
+    }
+//************************ Очищаем коллекцию ********************************************
+    public boolean clear() {
         boolean rez = false;
 
-        Node prevNode = lastNode;
-        lastNode = new Node(prevNode, value, null);
-        System.out.println("Нода добавлена!!!");
-        size++;
-
+        lastNode = new Node(firstNode, null, null);
+        firstNode = new Node(null, null, lastNode);
         rez = true;
+
         return (rez);
     }
-//***************************************************************************************
-    public boolean remove(int index) {
-        Node node;
-        int i = 0;
-        while (i < index) {
-            node = node.getNextNode();
-            i++;
-        }
-        node.getPrevNode().setNextNode(node.nextNode);
-        node.getNextNode().setPrevNode(node.prevNode);
-        node = null;
+//************************ Возвращаем размер коллекции **********************************
+    public int size() {
+        return size;
     }
-}
+//************************ Возвращаем первый елемент в очереди (FIFO) *******************
+    public Object peek() {
+        return (firstNode.getItem());
+    }
+//************************ Воздвращаем первый елемент из очереди и УДАЛЯЕМ ЕГО из коллекции
+    public Object pool() {
+        Object vihlop = firstNode.getItem();
+
+        remove(0);
+
+        return vihlop;
+    }
+//************************ toString() ***************************************************
+
+//    @Override
+//    public String toString() {
+//        return "MyQueue{" +
+//                "firstNode=" + firstNode +
+//                ", lastNode=" + lastNode +
+//                ", size=" + size +
+//                '}';
+//    }
+
+    public String toString() {
+        String vihlop = "";;
+        while (this.pool() != null) {
+            vihlop += this.pool().toString() + " ";
+        }
+        return vihlop;
+    }
 //***************************************************************************************
+}
