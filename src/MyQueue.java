@@ -5,21 +5,40 @@ public class MyQueue {
     private int size = 0;
 
     public MyQueue() {
+
+        System.out.println("КОНСТРУКТОР MyQueue()");
+
         lastNode = new Node(firstNode, null, null);
+        System.out.println("Создали самую ПОСЛЕДНЮЮ ноду " + lastNode);
+
         firstNode = new Node(null, null, lastNode);
+        System.out.println("Создали самую ПЕРВУЮ ноду " + firstNode);
+
+//        lastNode.setPrevNode(firstNode);
+//        System.out.println("ЕЩЕ РАЗ!!! Создали самую ПОСЛЕДНЮЮ ноду " + lastNode);
     }
 
 //***************************************************************************************
+
+//    private static int kolNod = 0;
+//    public static int getKolNod() {
+//        return kolNod;
+//    }
+
     private static class Node {
 
         private Node prevNode;
         private Object item;
         private Node nextNode;
 
+
+
         Node(Node prevNode, Object item, Node nextNode) {
             this.prevNode = prevNode;
             this.item = item;
             this.nextNode = nextNode;
+
+//            kolNod++;
         }
 
         public Node getPrevNode() {
@@ -56,25 +75,22 @@ public class MyQueue {
     }
 //************************ Добавляем елемент в конец по значению ************************
     public boolean add(Object value) {
-        for(int i=0; i<size; i++) {
-
-        }
         Node newNode;
         if (size == 0) {
-//            newNode = lastNode;
-//            newNode.setItem(value);
-
-            newNode = new Node(firstNode, value, lastNode);
-            lastNode = newNode;
-
+            firstNode.setItem(value);
+            System.out.println("Назначили item firstNode ноде. ВОТ ОНА " + firstNode);
+        } else
+        if (size == 1) {
+            lastNode.setItem(value);
+            System.out.println("Назначили item lastNode. ВОТ ОНА " + lastNode);
 //            lastNode.setPrevNode(firstNode);
-//            lastNode.setItem(value);
-//            System.out.println("In LAST NODE added value " + value);
-            System.out.println("Fist node = " + newNode);
-        } else {
+//            System.out.println("Назначили предыдущую lastNode. ВОТ ОНА " + lastNode);
+        }
+        else {
             newNode = new Node(lastNode, value, null);
+            System.out.println("Создали НОВУЮ ноду и назначили ей предыдущую lastNode" +
+                    " и value = " + value + " Вот она: " + newNode);
             lastNode = newNode;
-            System.out.println("Added new NODE - " + newNode);
         }
         size++;
         return true;
@@ -82,14 +98,17 @@ public class MyQueue {
 //************************ Удаляем елемент по индексу ***********************************
     public boolean remove(int index) {
         Node nodeToRemove = firstNode;
-        for (int i=0; i<=index; i++) {
+        for (int i=0; i<index; i++) {
             nodeToRemove = nodeToRemove.getNextNode();
+            System.out.println("nodeToRemove = " + nodeToRemove);
+
         }
         System.out.println("Удаляем ноду " + nodeToRemove.getItem());
         nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
         nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
         nodeToRemove = null;
         size--;
+//        kolNod--;
         System.out.println("Удалили успешно!!!");
         return true;
     }
@@ -100,6 +119,7 @@ public class MyQueue {
         lastNode = new Node(firstNode, null, null);
         firstNode = new Node(null, null, lastNode);
         rez = true;
+        size = 0;
 
         return (rez);
     }
