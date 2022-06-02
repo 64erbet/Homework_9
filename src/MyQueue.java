@@ -68,47 +68,53 @@ public class MyQueue {
 
         @Override
         public String toString() {
-            return "Node{" + prevNode +
-            ", " + item +
-            ", " + nextNode +
-            '}';
+            return "Node{ " +
+                    prevNode +
+            ", " +
+                    item +
+            ", " +
+                    nextNode +
+            " }";
         }
     }
 //************************ Добавляем елемент в конец по значению ************************
     private Node prevNode = null;
     public boolean add(Object value) {
-        size = this.getSize();
 
         if (size == 0) {
-            Node node = new Node();
+            Node firstNode = new Node();
             this.setSize(size++);
             size++;
-            node.setItem(value);
-            node.setPrevNode(null);
-            node.setNextNode(null);
-            this.setFirstNode(node);
-            this.setLastNode(node);
+            firstNode.setItem(value);
+            firstNode.setPrevNode(null);
+            firstNode.setNextNode(null);
+            this.setFirstNode(firstNode);
+            this.setLastNode(firstNode);
 
-            prevNode = node;
-            lastNode = node;
-
-            System.out.println("ВСТАВИЛИ НОДУ В НАЧАЛО. \nВсего есть " + this.getSize() + " нода");
+            System.out.println("ВСТАВИЛИ НОДУ (((  " + firstNode + "  ))) В НАЧАЛО. \nВсего есть " + this.getSize() + " нода");
         }
         else {
             Node node = new Node();
-            this.setSize(size++);
             size++;
+            this.setSize(size);
             node.setItem(value);
-            node.setPrevNode(this.lastNode);
+            node.setPrevNode(lastNode);
+//            this.lastNode.setNextNode(node);
             node.setNextNode(null);
             this.setLastNode(node);
+//            lastNode.getPrevNode().setNextNode(node);
+//            Node prevNode =
 
-            prevNode = node;
+            System.out.println("lastNode = " + lastNode);
 
-            System.out.println("Вставили ноду в конец. \nВсего есть " + this.getSize() + " нод");
+//********************************************************
+//            node.getPrevNode().setNextNode(node);
+//********************************************************
+
+            System.out.println("Вставили ноду (((  " + node + "  ))) В КОНЕЦ. \nВсего есть " + this.getSize() + " нод");
         }
 
-        System.out.println("size = " + size);
+//        System.out.println("size = " + size);
         return true;
     }
 //************************ Удаляем елемент по индексу ***********************************
@@ -118,7 +124,6 @@ public class MyQueue {
             nodeToRemove = nodeToRemove.getNextNode();
             System.out.println("i = " + i);
             System.out.println("nodeToRemove = " + nodeToRemove);
-
         }
         System.out.println("Удаляем ноду " + nodeToRemove.getItem());
         nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
@@ -160,11 +165,11 @@ public class MyQueue {
 
     @Override
     public String toString() {
-        return "MyQueue{" +
-                "firstNode=" + firstNode +
-                ", lastNode=" + lastNode +
-                ", size=" + size +
-                '}';
+        return "MyQueue{ " +
+                " firstNode = " + firstNode +
+                ", lastNode = " + lastNode +
+                ", size = " + size +
+                " }";
     }
 
 //    public String toString() {
