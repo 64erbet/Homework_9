@@ -1,46 +1,56 @@
+import javax.lang.model.element.Element;
+
 public class MyQueue {
 //--------------------
-    private Node firstNode;
-
-    public Node getFirstNode() {
-        return firstNode;
-    }
-
-    public void setFirstNode(Node firstNode) {
-        this.firstNode = firstNode;
-    }
+    public Node firstNode;
+//    private Node firstNode;
+//
+//    public Node getFirstNode() {
+//        return firstNode;
+//    }
+//
+//    public void setFirstNode(Node firstNode) {
+//        this.firstNode = firstNode;
+//    }
 //--------------------
-    private Node lastNode;
-
-    public Node getLastNode() {
-        return lastNode;
-    }
-
-    public void setLastNode(Node lastNode) {
-        this.lastNode = lastNode;
-    }
+    public Node lastNode;
+//    private Node lastNode;
+//
+//    public Node getLastNode() {
+//        return lastNode;
+//    }
+//
+//    public void setLastNode(Node lastNode) {
+//        this.lastNode = lastNode;
+//    }
 //--------------------
-    private int size = 0;
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
+    public int size = 0;
+//    private int size = 0;
+//
+//    public int getSize() {
+//        return size;
+//    }
+//
+//    public void setSize(int size) {
+//        this.size = size;
+//    }
 
     public MyQueue() {
         System.out.println("КОНСТРУКТОР MyQueue()");
     }
 
 //***************************************************************************************
+    private class Node {
 
-    private static class Node {
+        Node prevNode;
+        Object item;
+        Node nextNode;
 
-        private Node prevNode;
-        private Object item;
-        private Node nextNode;
+        Node(Node prevNode, Object item, Node nextNode) {
+            this.prevNode = prevNode;
+            this.item = item;
+            this.nextNode = nextNode;
+        }
 
         public Node getPrevNode() {
             return prevNode;
@@ -77,44 +87,27 @@ public class MyQueue {
             " }";
         }
     }
+//***************************************************************************************
+
+//    Node firstNode = new Node(null, null, lastNode);
+//    Node lastNode = new Node(firstNode, null, null);
+
 //************************ Добавляем елемент в конец по значению ************************
-    private Node prevNode = null;
     public boolean add(Object value) {
-
         if (size == 0) {
-            Node firstNode = new Node();
-            this.setSize(size++);
+            Node node = new Node(null, value, null);
+            firstNode = node;
+            lastNode = node;
             size++;
-            firstNode.setItem(value);
-            firstNode.setPrevNode(null);
-            firstNode.setNextNode(null);
-            this.setFirstNode(firstNode);
-            this.setLastNode(firstNode);
-
-            System.out.println("ВСТАВИЛИ НОДУ (((  " + firstNode + "  ))) В НАЧАЛО. \nВсего есть " + this.getSize() + " нода");
-        }
-        else {
-            Node node = new Node();
+            System.out.println("Создали ПЕРВУЮ ноду");
+        } else {
+            Node node = new Node(lastNode, value, null);
+//            lastNode.nextNode = node;
+            lastNode = node;
             size++;
-            this.setSize(size);
-            node.setItem(value);
-            node.setPrevNode(lastNode);
-//            this.lastNode.setNextNode(node);
-            node.setNextNode(null);
-            this.setLastNode(node);
-//            lastNode.getPrevNode().setNextNode(node);
-//            Node prevNode =
-
-            System.out.println("lastNode = " + lastNode);
-
-//********************************************************
-//            node.getPrevNode().setNextNode(node);
-//********************************************************
-
-            System.out.println("Вставили ноду (((  " + node + "  ))) В КОНЕЦ. \nВсего есть " + this.getSize() + " нод");
+            System.out.println("Создали ПОСЛЕДУЮЩУЮ ноду");
         }
 
-//        System.out.println("size = " + size);
         return true;
     }
 //************************ Удаляем елемент по индексу ***********************************
@@ -125,7 +118,7 @@ public class MyQueue {
             System.out.println("i = " + i);
             System.out.println("nodeToRemove = " + nodeToRemove);
         }
-        System.out.println("Удаляем ноду " + nodeToRemove.getItem());
+        System.out.println("Удаляем елемент ноды " + nodeToRemove.getItem());
         nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
         nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
         nodeToRemove = null;
