@@ -65,9 +65,12 @@ public class MyQueue {
         boolean rez = false;
 
         for (int i = 0; i < size; i++) {
-            if (i!=(size-1)) {
+            System.out.println("i = " + i);
+                this.poll();
+//            remove(i);
+//            if (i!=(size-1)) {
                 System.out.println("Удаляем " + i + "-й елемент ");
-            }
+//            }
 
         }
 
@@ -83,7 +86,6 @@ public class MyQueue {
 //************************ Возвращаем первый елемент в очереди (FIFO) *******************
     public Object peek() {
         return (firstNode.item);
-//        return firstNode;
     }
 //************************ Воздвращаем первый елемент из очереди и УДАЛЯЕМ ЕГО из коллекции
     public Object poll() {
