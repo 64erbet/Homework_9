@@ -145,6 +145,7 @@ public class MyQueue {
 //************************ Возвращаем первый елемент в очереди (FIFO) *******************
     public Object peek() {
         return (firstNode.getItem());
+//        return firstNode;
     }
 //************************ Воздвращаем первый елемент из очереди и УДАЛЯЕМ ЕГО из коллекции
     public Object poll() {

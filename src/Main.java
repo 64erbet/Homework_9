@@ -14,10 +14,11 @@ public class Main {
         sama_myQueue.add("THREE !!!");
 //        sama_myQueue.add("FOUR !!!!");
 //        sama_myQueue.add("FIVE !!!!!");
-//        System.out.println("main(). На данный момент у нас есть " + sama_myQueue.getSize() + " нод");
+        System.out.println("main(). На данный момент у нас есть " + sama_myQueue.size + " нод");
         System.out.println("main(). sama_myQueue = " + sama_myQueue);
 
-//        System.out.println("Удаляем елемент по индексу 3");
+        System.out.println("sama_myQueue.peek() = " + sama_myQueue.peek());
+//        System.out.println("Удаляем елемент по индексу 1");
 //        sama_myQueue.remove(3);
 
 
