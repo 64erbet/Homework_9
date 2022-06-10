@@ -1,5 +1,11 @@
 import javax.lang.model.element.Element;
 
+/*
+
+Осталось допилить метод poll() и clear()
+
+ */
+
 public class MyQueue {
 //--------------------
     public Node firstNode;
@@ -51,6 +57,16 @@ public class MyQueue {
     }
 //************************ Удаляем елемент по индексу ***********************************
     public boolean remove(int index) {
+//        Node buffer;
+        if (index == 0) {
+            System.out.println("Deleting first element");
+            firstNode = firstNode.nextNode;
+            System.out.println("Deleted first element");
+        }
+        if (index == (size-1)) {
+            System.out.println("Deleting last element");
+//            lastNode = lastNode.
+        }
         Node prevNodeToRemove = firstNode;
         for (int i=0; i<(index-1); i++) {
             prevNodeToRemove = prevNodeToRemove.nextNode;
@@ -66,10 +82,11 @@ public class MyQueue {
 
         for (int i = 0; i < size; i++) {
             System.out.println("i = " + i);
-                this.poll();
+                this.remove(0);
 //            remove(i);
 //            if (i!=(size-1)) {
-                System.out.println("Удаляем " + i + "-й елемент ");
+//                System.out.println("Удаляем " + i + "-й елемент ");
+                System.out.println("Удаляем 0-й елемент ");
 //            }
 
         }
