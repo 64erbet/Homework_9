@@ -13,9 +13,12 @@ public class MyQueue {
     public Node lastNode;
 //--------------------
     public int size = 0;
+
+
     public MyQueue() {
         System.out.println("КОНСТРУКТОР MyQueue()");
     }
+
 
 //***************************************************************************************
     private class Node {
@@ -106,11 +109,11 @@ public class MyQueue {
     }
 //************************ Воздвращаем первый елемент из очереди и УДАЛЯЕМ ЕГО из коллекции
     public Object poll() {
-        Object vihlop = firstNode.item;
+//        Object vihlop = firstNode.item;
 
         remove(0);
 
-        return vihlop;
+        return firstNode.item;
     }
 //************************ toString() ***************************************************
 

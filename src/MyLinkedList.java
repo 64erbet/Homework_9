@@ -45,6 +45,16 @@ public class MyLinkedList {
         public void setNextNode(Node nextNode) {
             this.nextNode = nextNode;
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+//                    "prevNode=" + prevNode +
+                    ", item=" + item +
+//                    ", nextNode=" + nextNode +
+                    '}';
+        }
+
     }
     //************************ Это метод add() **********************************************
     public boolean add(Object o) {
@@ -65,23 +75,27 @@ public class MyLinkedList {
     public boolean remove(int index) {
         boolean rez = false;
 
+        Node nodeToRemove = null;
         if (size == 0) {
             throw new IllegalStateException("List is empty");
         } else {
-            Node nodeToRemove = firstNode.getNextNode();
-            for(int i=0; i < index; i++) {
+//********************* Нулевая нода *****************
+            if (index == 0) {
+                firstNode = firstNode.getNextNode();
+                size--;
+                return true;
+            }
+//*****************************************************
+            nodeToRemove = firstNode;
+            for(int i=0; i <= index; i++) {
                 nodeToRemove = nodeToRemove.getNextNode();
             }
-
             nodeToRemove.getNextNode().setPrevNode(nodeToRemove.getPrevNode());
             nodeToRemove.getPrevNode().setNextNode(nodeToRemove.getNextNode());
-
             nodeToRemove = null;
         }
         size --;
-
         rez = true;
-
         return rez;
     }
     //************************ Это метод clear() ********************************************
