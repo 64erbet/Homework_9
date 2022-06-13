@@ -62,7 +62,7 @@ public class MyQueue {
     public boolean remove(int index) {
 //        Node buffer;
         if (index == 0) {
-            System.out.println("Deleting first element");
+//            System.out.println("Deleting first element");
             firstNode = firstNode.nextNode;
             System.out.println("Deleted first element");
         }
@@ -74,6 +74,7 @@ public class MyQueue {
         for (int i=0; i<(index-1); i++) {
             prevNodeToRemove = prevNodeToRemove.nextNode;
         }
+
         prevNodeToRemove.nextNode = prevNodeToRemove.nextNode.nextNode;
         size--;
         System.out.println("Удалили успешно!!!");
@@ -109,11 +110,13 @@ public class MyQueue {
     }
 //************************ Воздвращаем первый елемент из очереди и УДАЛЯЕМ ЕГО из коллекции
     public Object poll() {
-//        Object vihlop = firstNode.item;
-
+        System.out.println("Зашли в метод полл!!");
+        Object vihlop = firstNode.item;
+//        System.out.println("Зашли в метод полл!!");
         remove(0);
 
-        return firstNode.item;
+//        return firstNode.item;
+        return vihlop;
     }
 //************************ toString() ***************************************************
 

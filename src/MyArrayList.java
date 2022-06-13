@@ -1,15 +1,17 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MyArrayList {
 
-    public static Object massiv[];
+    public  Object massiv[];
 
 //************************ add(Object value) добавляет элемент в конец *********************
 
-    public static Object[] add(Object value) {
+    public Object[] add(Object value) {
         Object[] old_massiv;
 
         if (massiv == null) {
@@ -28,8 +30,7 @@ public class MyArrayList {
         return massiv;
     }
 //************************ remove(int index) удаляет элемент под индексом **************
-
-    public static Object[] remove(int index) {
+    public Object[] remove(int index) {
         Object[] new_massiv = new Object[massiv.length - 1];
         int kol_del = 0;
         for(int i=0; i< massiv.length-1; i++) {
@@ -38,19 +39,32 @@ public class MyArrayList {
             }
             new_massiv[i] = massiv[i+kol_del];
         }
-        return (new_massiv);
+        massiv = new_massiv;
+        return (massiv);
     }
 
-    //************************ clear() очищает коллекцию ***********************************
-    public static Object[] clear() {
-        return (new Object[massiv.length]);
+//************************ clear() очищает коллекцию ***********************************
+    public void clear() {
+
+        for (Object i : massiv) {
+//            System.out.println("i = " + i);
+            i = null;
+        }
+//        System.out.println("myArrayList cleaned!!");
     }
-    //************************ size() возвращает размер коллекции **************************
-    public static int size() {
+//************************ size() возвращает размер коллекции **************************
+    public int size() {
         return (massiv.length);
     }
-    //************************ get(int index) возвращает элемент под индексом **************
-    public static Object get(int index) {
+//************************ get(int index) возвращает элемент под индексом **************
+    public Object get(int index) {
         return (massiv[index]);
+    }
+
+    @Override
+    public String toString() {
+        return "MyArrayList{ " +
+                "massiv = " + Arrays.toString(massiv) +
+                " }";
     }
 }

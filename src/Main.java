@@ -29,8 +29,12 @@ public class Main {
         //----------- peek()----------------
         System.out.println("main(). sama_myQueue.peek() = " + sama_myQueue.peek());
 
+
+
+
+
         //----------- pool()----------------
-        System.out.println("main(). sama_myQueue ДО метода poll() " + sama_myQueue.size() + " елементов");
+        System.out.println("*******************\nmain(). sama_myQueue ДО метода poll() " + sama_myQueue.size() + " елементов: " + sama_myQueue + "\n*******************");
         System.out.println("sama_myQueue.poll() = " + sama_myQueue.poll());
         System.out.println("main(). sama_myQueue ПОСЛЕ метода poll() = " + sama_myQueue);
 
@@ -48,7 +52,8 @@ public class Main {
 
 
         System.out.println("main(). sama_myQueue = " + sama_myQueue);
-//********************************************************************
+
+//************************ myLinkedList ******************************
 //        MyLinkedList myLinkedList = new MyLinkedList();
 //        myLinkedList.add("RAZ");
 //        myLinkedList.add("DVA");
@@ -56,9 +61,25 @@ public class Main {
 //
 //        System.out.println("myLinkedList = " + myLinkedList);
 //
-//        myLinkedList.remove(2);
+//        myLinkedList.remove(0);
 //
 //        System.out.println("myLinkedList = " + myLinkedList);
+//********************************************************************
+//************************ myArrayList *******************************
+//        MyArrayList myArrayList = new MyArrayList();
+//        myArrayList.add("RAZ");
+//        myArrayList.add("DVA");
+//        myArrayList.add("TRI");
+//
+//        System.out.println("myArrayList = " + myArrayList);
+//
+//        myArrayList.remove(1);
+//
+//        System.out.println("myArrayList after remove (1) = " + myArrayList);
+//        System.out.println("myArrayList.size() = " + myArrayList.size());
+//        System.out.println("myArrayList.get(0) = " + myArrayList.get(0));
+////        System.out.println("myArrayList.clear() = " + myArrayList.clear());
+//        myArrayList.clear();
 //********************************************************************
 
     }
