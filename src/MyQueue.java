@@ -2,7 +2,7 @@ import javax.lang.model.element.Element;
 
 /*
 
-Осталось допилить метод poll() и clear()
+
 
  */
 
@@ -60,22 +60,29 @@ public class MyQueue {
     }
 //************************ Удаляем елемент по индексу ***********************************
     public boolean remove(int index) {
-//        Node buffer;
         if (index == 0) {
-//            System.out.println("Deleting first element");
-            firstNode = firstNode.nextNode;
-            System.out.println("Deleted first element");
+            if (firstNode.nextNode != null) {
+                firstNode = firstNode.nextNode;
+                System.out.println("Deleted first element");
+            } else {
+                firstNode = null;
+                lastNode = null;
+                System.out.println("Last Node and First Node succesfully deleted !!!!!!!!!");
+            }
+        } else {
+            Node prevNodeToRemove = firstNode;
+            for (int i=0; i<(index-1); i++) {
+                prevNodeToRemove = prevNodeToRemove.nextNode;
+            }
+            System.out.println("prevNodeToRemove = " + prevNodeToRemove);
+            if (prevNodeToRemove.nextNode.nextNode == null) {
+                System.out.println("LAST NODE!!!");
+                lastNode = prevNodeToRemove;
+                prevNodeToRemove.nextNode = null;
+            } else {
+                prevNodeToRemove.nextNode = prevNodeToRemove.nextNode.nextNode;
+            }
         }
-        if (index == (size-1)) {
-            System.out.println("Deleting last element");
-//            lastNode = lastNode.
-        }
-        Node prevNodeToRemove = firstNode;
-        for (int i=0; i<(index-1); i++) {
-            prevNodeToRemove = prevNodeToRemove.nextNode;
-        }
-
-        prevNodeToRemove.nextNode = prevNodeToRemove.nextNode.nextNode;
         size--;
         System.out.println("Удалили успешно!!!");
         return true;
@@ -84,15 +91,9 @@ public class MyQueue {
     public boolean clear() {
         boolean rez = false;
 
-        for (int i = 0; i < size; i++) {
-            System.out.println("i = " + i);
-                this.remove(0);
-//            remove(i);
-//            if (i!=(size-1)) {
-//                System.out.println("Удаляем " + i + "-й елемент ");
-                System.out.println("Удаляем 0-й елемент ");
-//            }
-
+        for (int i = 0; i < size; ) {
+            System.out.println("size = " + size);
+            remove(0);
         }
 
         rez = true;
@@ -110,12 +111,9 @@ public class MyQueue {
     }
 //************************ Воздвращаем первый елемент из очереди и УДАЛЯЕМ ЕГО из коллекции
     public Object poll() {
-        System.out.println("Зашли в метод полл!!");
         Object vihlop = firstNode.item;
-//        System.out.println("Зашли в метод полл!!");
         remove(0);
 
-//        return firstNode.item;
         return vihlop;
     }
 //************************ toString() ***************************************************
@@ -128,13 +126,5 @@ public class MyQueue {
                 ", size = " + size +
                 " }";
     }
-
-//    public String toString() {
-//        String vihlop = "";
-//        for (int i=0; i<this.size(); i++) {
-//            vihlop += i + " ";
-//        }
-//        return vihlop;
-//    }
 //***************************************************************************************
 }
