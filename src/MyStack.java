@@ -1,5 +1,6 @@
 public class MyStack {
     int kolNod = 0;
+    Node firstNode = null;
 
     class Node {
         Object item;
@@ -18,14 +19,9 @@ public class MyStack {
                     "}";
         }
     }
-    public push(Object value) {
-        if (kolNod == 0) {
-            Node firstNode = new Node(value, null);
-        } else {
+    public boolean push(Object value) {
 
-        }
 
-        kolNod++;
     }
     public remove(int index) {
 
