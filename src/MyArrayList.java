@@ -10,7 +10,6 @@ public class MyArrayList {
     public  Object massiv[];
 
 //************************ add(Object value) добавляет элемент в конец *********************
-
     public Object[] add(Object value) {
         Object[] old_massiv;
 
@@ -42,15 +41,9 @@ public class MyArrayList {
         massiv = new_massiv;
         return (massiv);
     }
-
 //************************ clear() очищает коллекцию ***********************************
     public void clear() {
-
-        for (Object i : massiv) {
-//            System.out.println("i = " + i);
-            i = null;
-        }
-//        System.out.println("myArrayList cleaned!!");
+        massiv = null;
     }
 //************************ size() возвращает размер коллекции **************************
     public int size() {

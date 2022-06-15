@@ -9,7 +9,7 @@ public class MyLinkedList {
         firstNode = new Node(null, null, lastNode);
     }
 
-    //***************************************************************************************
+//************************ Класс Node ***************************************************
     private static class Node {
 
         private Node prevNode;
@@ -56,7 +56,7 @@ public class MyLinkedList {
         }
 
     }
-    //************************ Это метод add() **********************************************
+//************************ Это метод add() **********************************************
     public boolean add(Object o) {
         boolean rez = false;
 
@@ -71,7 +71,7 @@ public class MyLinkedList {
 //        System.out.println("Добавили елемент. Всего елементов в арай листе: " + this.size);
         return rez;
     }
-    //************************ Это метод remove() ******************************************
+//************************ Это метод remove() ******************************************
     public boolean remove(int index) {
         boolean rez = false;
 
@@ -79,13 +79,11 @@ public class MyLinkedList {
         if (size == 0) {
             throw new IllegalStateException("List is empty");
         } else {
-//********************* Нулевая нода *****************
             if (index == 0) {
                 firstNode = firstNode.getNextNode();
                 size--;
                 return true;
             }
-//*****************************************************
             nodeToRemove = firstNode;
             for(int i=0; i <= index; i++) {
                 nodeToRemove = nodeToRemove.getNextNode();
@@ -98,20 +96,20 @@ public class MyLinkedList {
         rez = true;
         return rez;
     }
-    //************************ Это метод clear() ********************************************
+//************************ Это метод clear() ********************************************
     public void clear() {
 
         this.lastNode = new Node(firstNode, null, null);
         this.firstNode = new Node(null, null, lastNode);
         this.size = 0;
 
-//        System.out.println("MyLinkedList обнулен !!!!!");
+    //        System.out.println("MyLinkedList обнулен !!!!!");
     }
-    //************************ Это метод size() *********************************************
+//************************ Это метод size() *********************************************
     public int size() {
         return (size);
     }
-    //************************ Это метод get() **********************************************
+//************************ Это метод get() **********************************************
 
     public Object get(int index) {
         Node vihlop = firstNode.getNextNode();
@@ -122,7 +120,7 @@ public class MyLinkedList {
 
         return vihlop.getItem();
     }
-    //************************* Это метод toString() ****************************************
+//************************* Это метод toString() ****************************************
 
     @Override
     public String toString() {
