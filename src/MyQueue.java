@@ -38,15 +38,14 @@ public class MyQueue {
 
         if (size == 0) {
             firstNode = node;
-            size++;
             System.out.println("Создали ПЕРВУЮ ноду");
         } else {
             buffer.nextNode = node;
-            size++;
             System.out.println("Создали ПОСЛЕДУЮЩУЮ ноду");
         }
 
-        return true;
+        size++;
+        return (true);
     }
 //************************ remove() *****************************************************
     public boolean remove(int index) {

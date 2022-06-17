@@ -5,11 +5,23 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] organs) throws IOException {
+////************************ myHashMap *********************************
+        MyHashMap myHashMap = new MyHashMap();
+//************************ put(Object key, Object value) (добавляет пару ключ + значение)***
+        myHashMap.put("One", 64);
+        myHashMap.put("Two", 65);
+        myHashMap.put("Three", 66);
+        myHashMap.put("Four", 67);
+
+        System.out.println("myHashMap = " + myHashMap);
+
+//************************ remove(Object key) (удаляет пару по ключу) ********************
+        myHashMap.remove("Two");
 
 
 ////************************ myStack ***********************************
+
 //        MyStack myStack = new MyStack();
-//
 ////************************ push() ****************************************
 //        myStack.push("One");
 //        myStack.push("Two");
@@ -79,33 +91,34 @@ public class Main {
 
 
 //************************ myLinkedList ******************************
-        MyLinkedList myLinkedList = new MyLinkedList();
 
-        //**************** add() **************************************
-        myLinkedList.add("One");
-        myLinkedList.add("Two");
-        myLinkedList.add("Three");
-        myLinkedList.add("Four");
-        myLinkedList.add("Five");
-        myLinkedList.add("Six");
-
-        System.out.println("myLinkedList = " + myLinkedList);
-
-        //**************** remove() *************************************
-        myLinkedList.remove(0);
-        System.out.println("myLinkedList after remove 0 = " + myLinkedList);
-
-        //**************** size() ***************************************
-        System.out.println("myLinkedList.size() = " + myLinkedList.size());
-
-        //**************** get() ****************************************
-        System.out.println("myLinkedList.get(0) = " + myLinkedList.get(0));
-        System.out.println("myLinkedList.get(4) = " + myLinkedList.get(4));
-        System.out.println("myLinkedList.get(3) = " + myLinkedList.get(3));
-
-        //**************** clear() *************************************
-        myLinkedList.clear();
-        System.out.println("myLinkedList after clear() = " + myLinkedList);
+//        MyLinkedList myLinkedList = new MyLinkedList();
+//
+//        //**************** add() **************************************
+//        myLinkedList.add("One");
+//        myLinkedList.add("Two");
+//        myLinkedList.add("Three");
+//        myLinkedList.add("Four");
+//        myLinkedList.add("Five");
+//        myLinkedList.add("Six");
+//
+//        System.out.println("myLinkedList = " + myLinkedList);
+//
+//        //**************** remove() *************************************
+//        myLinkedList.remove(0);
+//        System.out.println("myLinkedList after remove 0 = " + myLinkedList);
+//
+//        //**************** size() ***************************************
+//        System.out.println("myLinkedList.size() = " + myLinkedList.size());
+//
+//        //**************** get() ****************************************
+//        System.out.println("myLinkedList.get(0) = " + myLinkedList.get(0));
+//        System.out.println("myLinkedList.get(4) = " + myLinkedList.get(4));
+//        System.out.println("myLinkedList.get(3) = " + myLinkedList.get(3));
+//
+//        //**************** clear() *************************************
+//        myLinkedList.clear();
+//        System.out.println("myLinkedList after clear() = " + myLinkedList);
 
 
 //************************ myArrayList *******************************
