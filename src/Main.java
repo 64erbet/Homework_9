@@ -13,10 +13,28 @@ public class Main {
         myHashMap.put("Three", 66);
         myHashMap.put("Four", 67);
 
+        myHashMap.put("Two", 66666);
+        myHashMap.put("Four", 999999);
+        myHashMap.put("One", 6969696);
+
         System.out.println("myHashMap = " + myHashMap);
 
-//************************ remove(Object key) (удаляет пару по ключу) ********************
-        myHashMap.remove("Two");
+////************************ remove(Object key) (удаляет пару по ключу) ********************
+//        myHashMap.remove("One");
+//        System.out.println("myHashMap = " + myHashMap);
+//
+////************************ size() (возвращает размер коллекции) *****************************
+//        System.out.println("myHashMap.size() = " + myHashMap.size());
+//
+//************************ get(Object key) (возвращает значение (Object value) по ключу ******
+//        System.out.println("myHashMap.get(\"Four\") = " + myHashMap.get("Four"));
+
+
+////************************ clear() (очищает коллекцию) **************************************
+//        myHashMap.clear();
+//        System.out.println("myHashMap = " + myHashMap);
+
+
 
 
 ////************************ myStack ***********************************
