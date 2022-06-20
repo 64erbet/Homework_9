@@ -21,19 +21,15 @@ public class MyLinkedList {
             this.item = item;
             this.nextNode = nextNode;
         }
-
         public Node getPrevNode() {
             return prevNode;
         }
-
         public void setPrevNode(Node prevNode) {
             this.prevNode = prevNode;
         }
-
         public Object getItem() {
             return item;
         }
-
         public void setItem(Object item) {
             this.item = item;
         }
@@ -54,21 +50,16 @@ public class MyLinkedList {
 //                    ", nextNode=" + nextNode +
                     '}';
         }
-
     }
 //************************ Это метод add() **********************************************
     public boolean add(Object o) {
         boolean rez = false;
-
         Node prevNode = lastNode;
         prevNode.setItem(o);
         lastNode = new Node(prevNode, null, null);
         prevNode.setNextNode(lastNode);
         size++;
-
         rez = true;
-
-//        System.out.println("Добавили елемент. Всего елементов в арай листе: " + this.size);
         return rez;
     }
 //************************ Это метод remove() ******************************************
@@ -102,8 +93,6 @@ public class MyLinkedList {
         this.lastNode = new Node(firstNode, null, null);
         this.firstNode = new Node(null, null, lastNode);
         this.size = 0;
-
-    //        System.out.println("MyLinkedList обнулен !!!!!");
     }
 //************************ Это метод size() *********************************************
     public int size() {
@@ -113,11 +102,9 @@ public class MyLinkedList {
 
     public Object get(int index) {
         Node vihlop = firstNode.getNextNode();
-
         for (int i=0; i<index; i++) {
             vihlop = vihlop.getNextNode();
         }
-
         return vihlop.getItem();
     }
 //************************* Это метод toString() ****************************************
@@ -127,7 +114,7 @@ public class MyLinkedList {
         String S = "[ ";
 
         if (this == null) {
-            S = "fuck";
+            S = "null";
         }
 
         for(int i=0; i<this.size(); i++) {
