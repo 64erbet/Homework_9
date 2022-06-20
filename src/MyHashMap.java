@@ -101,7 +101,7 @@ public class MyHashMap {
             while (!prevNodeToRemove.nextNode.key.equals(localKey)) {
                 prevNodeToRemove = prevNodeToRemove.nextNode;
             }
-            System.out.println("prevNodeToRemove = " + prevNodeToRemove);
+//            System.out.println("prevNodeToRemove = " + prevNodeToRemove);
             if (prevNodeToRemove.nextNode.nextNode == null) {
                 rez = prevNodeToRemove.nextNode.value;
                 lastNode = prevNodeToRemove;
