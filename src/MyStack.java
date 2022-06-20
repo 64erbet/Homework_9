@@ -29,25 +29,27 @@ public class MyStack {
 
 //************************ push() ***********************************
 
-    public boolean push(Object value) {
+    public Object push(Object value) {
+//    public void push(Object value) {
         Node buffer = lastNode;
         Node node = new Node(value, null);
         lastNode = node;
 
         if (size == 0) {
             firstNode = node;
-//            size++;
+            size++;
             System.out.println("Создали ПЕРВУЮ ноду");
+            return (null);
         } else {
             buffer.nextNode = node;
-//            size++;
+            size++;
             System.out.println("Создали ПОСЛЕДУЮЩУЮ ноду");
+            return (buffer.item);
         }
-        size++;
-        return true;
     }
 //************************ remove() ***********************************
     public boolean remove(int index) {
+        boolean rez = false;
         if (index == 0) {
             if (firstNode.nextNode != null) {
                 firstNode = firstNode.nextNode;
@@ -72,8 +74,9 @@ public class MyStack {
             }
         }
         size--;
+        rez = true;
         System.out.println("Удалили успешно!!!");
-        return true;
+        return (rez);
     }
 //************************ clear() ***********************************
     public boolean clear() {

@@ -48,12 +48,15 @@ public class MyQueue {
         return (true);
     }
 //************************ remove() *****************************************************
-    public boolean remove(int index) {
+    public Object remove(int index) {
+        Object element = null;
         if (index == 0) {
             if (firstNode.nextNode != null) {
+                element = firstNode.item;
                 firstNode = firstNode.nextNode;
                 System.out.println("Deleted first element");
             } else {
+                element = firstNode.item;
                 firstNode = null;
                 lastNode = null;
                 System.out.println("Last Node and First Node succesfully deleted !!!!!!!!!");
@@ -67,14 +70,16 @@ public class MyQueue {
             if (prevNodeToRemove.nextNode.nextNode == null) {
                 System.out.println("LAST NODE!!!");
                 lastNode = prevNodeToRemove;
+                element = prevNodeToRemove.nextNode.item;
                 prevNodeToRemove.nextNode = null;
             } else {
+                element = prevNodeToRemove.nextNode;
                 prevNodeToRemove.nextNode = prevNodeToRemove.nextNode.nextNode;
             }
         }
         size--;
         System.out.println("Удалили успешно!!!");
-        return true;
+        return (element);
     }
 //************************ clear() ******************************************************
     public boolean clear() {

@@ -52,35 +52,27 @@ public class MyHashMap {
     }
 
 //************************ put(Object key, Object value) (добавляет пару ключ + значение)****
-    public boolean put(Object key, Object value) {
-
+    public Object put(Object key, Object value) {
+        Object rez = null;
         int hash = Objects.hash(key, value);
         Node buffer = lastNode;
         Node node = new Node(hash, key, value, null);
         lastNode = node;
         if (size == 0) {
             firstNode = node;
-            System.out.println("Создали ПЕРВУЮ ноду = " + firstNode.key);
-            System.out.println();
             size++;
         } else {
 //************************ Проверяем нет ли уже такого key. Если есть - перезаписываем
             boolean zamena = false;
             Node newBuffer = firstNode;
-            System.out.println("size = " + size);
             if (size>0) {
                 for (int i=0; i<size; i++) {
                     if (newBuffer.key.equals(key)) {
-                        System.out.println("newBuffer.key = " + newBuffer.key);
-
-                        System.out.println("this.get(newBuffer.key) = " + this.get(newBuffer.key));
+                        rez = newBuffer.value;
                         newBuffer.value = value;
-                        System.out.println("Установили новый валуе");
                         zamena = true;
                         lastNode = buffer;
-//                        this.toString();
                     }
-
                     newBuffer = newBuffer.nextNode;
                 }
             }
@@ -89,54 +81,47 @@ public class MyHashMap {
                 buffer.nextNode = node;
                 size++;
             }
-            System.out.println("Создали ПОСЛЕДУЮЩУЮ ноду");
-            System.out.println();
-//            size++;
         }
-//        size++;
-        return (true);
+        return (rez);
     }
 //************************ remove(Object key) (удаляет пару по ключу) ********************
-    public boolean remove(Object localKey) {
-        boolean rez = false;
+    public Object remove(Object localKey) {
+        Object rez = null;
         if (firstNode.key.equals(localKey)) {
             if (firstNode.nextNode != null) {
+                rez = firstNode.value;
                 firstNode = firstNode.nextNode;
-                System.out.println("Удалили первую ноду");
             } else {
+                rez = firstNode.value;
                 firstNode = null;
                 lastNode = null;
-                System.out.println("Last Node and First Node succesfully deleted !!!!!!!!!");
             }
         } else {
             Node prevNodeToRemove = firstNode;
             while (!prevNodeToRemove.nextNode.key.equals(localKey)) {
                 prevNodeToRemove = prevNodeToRemove.nextNode;
             }
+            System.out.println("prevNodeToRemove = " + prevNodeToRemove);
             if (prevNodeToRemove.nextNode.nextNode == null) {
+                rez = prevNodeToRemove.nextNode.value;
                 lastNode = prevNodeToRemove;
                 prevNodeToRemove.nextNode = null;
             } else {
+                rez = prevNodeToRemove.nextNode.value;
                 prevNodeToRemove.nextNode = prevNodeToRemove.nextNode.nextNode;
             }
-            System.out.println("Удалили ноду");
         }
         size--;
-        rez = true;
-        return rez;
+        return (rez);
     }
 //************************ clear() (очищает коллекцию) **************************************
     public boolean clear() {
         boolean rez = false;
-
         for (int i = 0; i < size; ) {
-            System.out.println("size = " + size);
             remove(firstNode.key);
         }
-
         rez = true;
         size = 0;
-
         return (rez);
     }
 //************************ size() (возвращает размер коллекции) *****************************
@@ -155,7 +140,6 @@ public class MyHashMap {
         return null;
     }
 
-
 //************************ toString() ********************************************************
     @Override
     public String toString() {
@@ -165,7 +149,4 @@ public class MyHashMap {
                 ", size= " + size +
                 " }";
     }
-
-
-//    HashMap myMap = new HashMap();
 }

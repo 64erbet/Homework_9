@@ -5,34 +5,39 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] organs) throws IOException {
-////************************ myHashMap *********************************
+        HashMap map = new HashMap();
+//        ArrayList list = new ArrayList();
+//        LinkedList list = new LinkedList<>();
+//        Queue queue = new sun.misc.Queue<>()
+//        Stack stack = new Stack<>();
+//////************************ myHashMap *********************************
         MyHashMap myHashMap = new MyHashMap();
 //************************ put(Object key, Object value) (добавляет пару ключ + значение)***
-        myHashMap.put("One", 64);
-        myHashMap.put("Two", 65);
-        myHashMap.put("Three", 66);
-        myHashMap.put("Four", 67);
+        System.out.println("myHashMap.put(\"One\", 64) = " + myHashMap.put("One", 64));
+        System.out.println("myHashMap.put(\"Two\", 65) = " + myHashMap.put("Two", 65));
+        System.out.println("myHashMap.put(\"Three\", 66) = " + myHashMap.put("Three", 66));
+        System.out.println("myHashMap.put(\"Four\", 67) = " + myHashMap.put("Four", 67));
 
-        myHashMap.put("Two", 66666);
-        myHashMap.put("Four", 999999);
-        myHashMap.put("One", 6969696);
+        System.out.println("myHashMap.put(\"One\", 6969696) = " + myHashMap.put("One", 6969696));
+        System.out.println("myHashMap.put(\"Two\", 66666) = " + myHashMap.put("Two", 66666));
+        System.out.println("myHashMap.put(\"Four\", 999999) = " + myHashMap.put("Four", 999999));
 
         System.out.println("myHashMap = " + myHashMap);
 
 ////************************ remove(Object key) (удаляет пару по ключу) ********************
-//        myHashMap.remove("One");
-//        System.out.println("myHashMap = " + myHashMap);
+        System.out.println("myHashMap.remove(\"Two\") = " + myHashMap.remove("Two"));
+        System.out.println("myHashMap = " + myHashMap);
 //
 ////************************ size() (возвращает размер коллекции) *****************************
-//        System.out.println("myHashMap.size() = " + myHashMap.size());
+        System.out.println("myHashMap.size() = " + myHashMap.size());
 //
 //************************ get(Object key) (возвращает значение (Object value) по ключу ******
-//        System.out.println("myHashMap.get(\"Four\") = " + myHashMap.get("Four"));
+        System.out.println("myHashMap.get(\"Four\") = " + myHashMap.get("Four"));
 
 
 ////************************ clear() (очищает коллекцию) **************************************
-//        myHashMap.clear();
-//        System.out.println("myHashMap = " + myHashMap);
+        myHashMap.clear();
+        System.out.println("myHashMap после метода clear() = " + myHashMap);
 
 
 
@@ -45,10 +50,10 @@ public class Main {
 //        myStack.push("Two");
 //        myStack.push("Three");
 //        myStack.push("Four");
-//        myStack.push("Five");
-//        myStack.push("Six");
-//        myStack.push("Seven");
-//        myStack.push("Eight");
+////        myStack.push("Five");
+////        myStack.push("Six");
+////        myStack.push("Seven");
+////        myStack.push("Eight");
 //        System.out.println("myStack = " + myStack);
 ////************************ remove() **************************************
 //        myStack.remove(0);
@@ -84,9 +89,9 @@ public class Main {
 //        System.out.println("main(). sama_myQueue = " + sama_myQueue);
 //
 //        //----------- remove()----------------
-//        System.out.println("main(). Удаляем елемент по индексу 4");
-//        sama_myQueue.remove(4);
-//        System.out.println("main(). sama_myQueue = " + sama_myQueue);
+////        System.out.println("main(). Удаляем елемент по индексу 4");
+//        System.out.println("sama_myQueue.remove(4) = " + sama_myQueue.remove(4));
+////        System.out.println("main(). sama_myQueue = " + sama_myQueue);
 //
 //        //----------- size()----------------
 //        System.out.println("main(). sama_myQueue.size = " + sama_myQueue.size);
